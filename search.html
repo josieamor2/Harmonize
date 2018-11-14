@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="./resources/css/normalize.css">
+
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <!-- Bootstrap Design-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <!--Our stylesheet-->
+    <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+    <!-- scripts for the calendar widget -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <!-- scripts for the location autocomplete -->
+    <script src="https://maps.googleapis.com/maps/api/js?&libraries=places&language=en&key=AIzaSyCOoNYhJml77XYXNv1wtc-sJFM3P79-jO4"></script>
+    <script src="./resources/js/gmaps.js"></script>
+
+
+
+    <title> Harmonize </title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar fixed-top navbar-light bg-light col-xl-12">
+
+                <div class="col-xl-8 col-lg-6 col-5 nav-logo">
+                    <a href="search.html">HARMONIZE</a>
+                </div>
+                <div class="col-xl-4 col-lg-5 col-7 nav-icons">
+
+                    <a href="search.html" class="navbar-icon">
+                        <i class="fas fa-search"></i>
+                        <p>Search</p>
+                    </a>
+                    <a href="favorites.html" class="navbar-icon">
+                        <i class="far fa-heart"></i>
+                        <p>Favorites</p>
+
+                    </a>
+                    <a href="index.html">
+                        <a class="signOut navbar-icon">
+                            <i class="far fa-user"></i>
+                            <p>Logout</p>
+
+                        </a>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+
+
+
+    <nav class="col-lg-4 col-md-4  col-xs-12 col-12 sidebar">
+        <div class="sidebar-sticky col-xs-12">
+            <form class="form-inline">
+                <p>Please enter the artist name</p>
+                <div class="artist">
+
+                    <input id="artist-input" class="form-control mr-sm-2" type="text" placeholder="Artist*" aria-label="Search" required="required"
+                    />
+                </div>
+                <div class="city-state">
+
+                    <input id="city-input" class="form-control mr-sm-2" type="City State" placeholder="City" aria-label="Search" />
+                </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+
+            </form>
+
+
+            <div class="searchresult col-lg-12 col-12 col-md-12 col-12">
+                <p>No Results Found</p>
+
+
+
+            </div>
+        </div>
+
+
+    </nav>
+
+
+    <main role="main" class="col-lg-8 col-md-8 col-sm-12">
+        <div class=" info-container row col-xl-12  col-md-12 col-sm-10">
+
+
+            <div class="image-container col-lg-5 col-md-5  col-sm-12">
+
+                <img class="artist-image" src="" alt="">
+            </div>
+            <div class="col-lg-7  col-md-7 col-sm-12 col-xs-12 artist-desc">
+
+                <h1 class="artist-name"></h1>
+                <div class="description">
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row col-lg-12 col-12">
+
+        </div>
+
+        <div class="row col-lg-12 col-md-12 col-sm-12 map">
+            <div id="map">
+
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small fixed-bottom">
+
+        <!-- Copyright -->
+        <a class="text-left slide-toggle1">Created By</a>
+
+        <div class="box1">
+
+            <div class="box-inner1 hidden">Brian, Inna, Josie, and Tony</div>
+        </div>
+        <a class="text-left slide-toggle2">Contributions</a>
+
+        <div class="box2">
+
+            <div class="box-inner2 hidden">Bands in Town, Google Maps, Google Authorization, Last FM, and Firebase</div>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
+    <script src="./resources/js/index-signin.js"></script>
+    <script src="./resources/js/index.js"></script>
+
+
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOoNYhJml77XYXNv1wtc-sJFM3P79-jO4&callback=myMap"></script> -->
+
+
+</body>
+
+
+</html>
